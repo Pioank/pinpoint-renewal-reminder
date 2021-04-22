@@ -28,7 +28,7 @@ This solution allows Pinpoint customers to assess and qualify customers who are 
 
 ![alt text](https://github.com/Pioank/pinpoint-renewal-reminder/blob/main/Images/Create_Renewal_Segment.JPG)
 
-**Third step:** Navigate to CloudFormation on AWS console and create a new stack with new resources. Upload the yaml file in this repository and fill the fields as shown on the screenshot below. Note that you will need to obtain your own Pinpoint Project ID and the Segment ID from the segment you created on the second step.
+**Third step:** Navigate to CloudFormation on AWS console and create a new stack with new resources. Upload the [yaml file in this repository](https://github.com/Pioank/pinpoint-renewal-reminder/blob/main/Pinpoint_Renewal_Reminder.yaml) and fill the fields as shown on the screenshot below. Note that you will need to obtain your own Pinpoint Project ID and the Segment ID from the segment you created on the second step.
 
 ![alt text](https://github.com/Pioank/pinpoint-renewal-reminder/blob/main/Images/Cloudformation_Input.JPG)
 
