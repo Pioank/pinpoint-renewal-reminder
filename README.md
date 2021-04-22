@@ -22,16 +22,16 @@ This solution allows Pinpoint customers to assess and qualify customers who are 
 
 **How to implement**
 
-First step: Ensure that your Pinpoint users have a Pinpoint User Attribute renewal_date that includes the renewal date of their subscription or the date of the appointment
+**First step:** Ensure that your Pinpoint users have a Pinpoint User Attribute renewal_date that includes the renewal date of their subscription or the date of the appointment
 
-Second step: Create a segment with a name "Renewal_Reminder" and configure its criteria like the screenshot below. Once the segment is created then obtain its segment ID, which is required for the next step
+**Second step:** Create a segment with a name "Renewal_Reminder" and configure its criteria like the screenshot below. Once the segment is created then obtain its segment ID, which is required for the next step
 
 ![alt text](https://github.com/Pioank/pinpoint-renewal-reminder/blob/main/Images/Create_Renewal_Segment.JPG)
 
-Third step: Navigate to CloudFormation on AWS console and create a new stack with new resources. Upload the yaml file in this repository and fill the fields as shown on the screenshot below. Note that you will need to obtain your own Pinpoint Project ID and the Segment ID from the segment you created on the second step.
+**Third step:** Navigate to CloudFormation on AWS console and create a new stack with new resources. Upload the yaml file in this repository and fill the fields as shown on the screenshot below. Note that you will need to obtain your own Pinpoint Project ID and the Segment ID from the segment you created on the second step.
 
 ![alt text](https://github.com/Pioank/pinpoint-renewal-reminder/blob/main/Images/Cloudformation_Input.JPG)
 
-Fourth step: At this point the Lambda on the third step will be triggered daily, which you can change by navigating to CloudWatch. To start sending reminders to your customers, create a Pinpoint Journey - see an example below:
+**Fourth step:** At this point the Lambda on the third step will be triggered daily, which you can change by navigating to CloudWatch. To start sending reminders to your customers, create a Pinpoint Journey - see an example below:
 
 ![alt text](https://github.com/Pioank/pinpoint-renewal-reminder/blob/main/Images/Pinpoint_Renewal_Journey.JPG)
