@@ -1,7 +1,6 @@
 # pinpoint-renewal-reminder
 A mechanism to send renewal reminders to your customers using Pinpoint
 
-
 **Use-cases**
 1) Subscription/Contract renewal
 2) Appointment reminder
@@ -15,6 +14,12 @@ This solution allows Pinpoint customers to assess and qualify customers who are 
 **Considerations**
 1) All customers will need to have a User Attribute with their renewal date stored in there
 2) Pinpoint Journeys with segments as an entry point, review the segment at a maximum frequency of 1 hour
+
+**Incorporating timezone - !!!NOT PART OF THIS SOLUTION**
+To incorporate timezone to this solution, three changes will need to take place:
+1) The CloudWatch event will need to take place every hour
+2) The "Renewal_Reminder" segment criteria will be a list of date-times for all the timezones of your customers. The format will include date, time (up to hour) and the timezone symbol e.g. 2021-04-20_10:00:00UTC. Ensure that the segment criteria Attribute operator is "Contains" and all date-times generated are in a form of a list
+3) The User Attribute "renewal_date" should also follow the format of date, time (up to hour) and timezone symbol as shown on point 2
 
 **Architectural diagram**
 
@@ -35,3 +40,5 @@ This solution allows Pinpoint customers to assess and qualify customers who are 
 **Fourth step:** At this point the Lambda on the third step will be triggered daily, which you can change by navigating to CloudWatch. To start sending reminders to your customers, create a Pinpoint Journey - see an example below:
 
 ![alt text](https://github.com/Pioank/pinpoint-renewal-reminder/blob/main/Images/Pinpoint_Renewal_Journey.JPG)
+
+
