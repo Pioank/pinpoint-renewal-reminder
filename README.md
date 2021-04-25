@@ -2,20 +2,25 @@
 A mechanism to send renewal reminders to your customers using Pinpoint
 
 **Use-cases**
+
 1) Subscription/Contract renewal
 2) Appointment reminder
 
 **Background**
+
 Companies want to have the ability to remind their customers for upcoming activities related to their products or services. Such cases include subscription renewal or appointment reminder and both have a monetary value attached to them. In the subscription case, if customers receive a reminder X days before the subscription there is a higher probability of them renewing and consequently the company decreasing the churn rate. In the case of appointment reminder, it helps companies to ensure that their resources are being utilised 100% by decreasing the number of no-show appointments.
 
 **Solution**
+
 This solution allows Pinpoint customers to assess and qualify customers who are X days away from the end of their subscription or appointment and add them to a segment. The segment works as the entry point for a Pinpoint Journey that sends out reminders. Every day (frequency can be changed) a Lambda is being executed and updates the segment mentioned above to include customers whose renewal date is TODAY + X days. The X days is a variable that can be changed when deploying the solution and refers to the number of days that you would like to send the first reminder to your customers who are up for renewal or an appointment. 
 
 **Considerations**
+
 1) All customers will need to have a User Attribute with their renewal date stored in there
 2) Pinpoint Journeys with segments as an entry point, review the segment at a maximum frequency of 1 hour
 
 **Incorporating timezone - !!!NOT PART OF THIS SOLUTION**
+
 To incorporate timezone to this solution, three changes will need to take place:
 1) The CloudWatch event will need to take place every hour
 2) The "Renewal_Reminder" segment criteria will be a list of date-times for all the timezones of your customers. The format will include date, time (up to hour) and the timezone symbol e.g. 2021-04-20_10:00:00UTC. Ensure that the segment criteria Attribute operator is "Contains" and all date-times generated are in a form of a list
